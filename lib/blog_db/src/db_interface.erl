@@ -53,7 +53,7 @@ get_posts() ->
                             fun() ->
                                     mysql:execute(p1, get_posts_query, [])
                             end),
-    mysql:get_result_rows(MySQLResults).
+    {ok, mysql:get_result_rows(MySQLResults)}.
 
 add_user(Username, FullName, Email, Password) ->
     case mysql:transaction(p1,

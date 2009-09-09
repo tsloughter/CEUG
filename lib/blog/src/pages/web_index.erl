@@ -9,7 +9,7 @@ title() ->
     "CEUG Blog".
 
 body() ->
-    Posts = db_interface:get_posts(),
+    {ok, Posts} = db_interface:get_posts(),
     lists:map(fun([Title, Post]) ->
                           #p {body=
                               [#h1{class="title", text=Title},
