@@ -10,6 +10,6 @@
               ]},
    {registered,[blog_db_sup, p1]},
    {applications, [kernel, stdlib, sasl, gas, mysql]},
-   {mod, {chatyeo_db_app,[]}},
+   {mod, {blog_db_app,[]}},
    {start_phases, []}]}.
 
