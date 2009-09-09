@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo Deploying CEUG Blog
+
+/usr/local/erlware/bin/sinan dist
+sudo /usr/local/erlware/bin/faxien ir _build/development/tar/ceug-0.1.0.0.tar.gz
+
