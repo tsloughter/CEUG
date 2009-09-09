@@ -1,0 +1,58 @@
+#!/bin/bash
+
+## We assume for now erlang and faxien is already installed
+
+CWD=`pwd`
+
+## Make sure user has root perms
+
+ROOT_UID=0     # Only users with $UID 0 have root privileges.
+E_NOTROOT=67   # Non-root exit error.
+
+if [ $UID -ne $ROOT_UID ]
+then
+        echo "Must be root to run this script. Try sudo ./setup_node"
+        exit $E_NOTROOT
+fi
+
+## Install nitrogen
+
+if [ -d /opt/erlang-libs/nitrogen ]; then
+	echo "Nitrogen already installed"
+else 
+	echo "Installing Nitrogen from github"
+  mkdir -p /opt/erlang-libs/
+  cd /opt/erlang-libs/
+  git clone git://github.com/diginux/nitrogen.git
+  cd nitrogen
+  make
+  cd $CWD
+fi
+
+## Install yaws
+
+if [ -d /opt/erlang-libs/yaws ]; then
+	echo "Yaws already installed"
+else 
+	echo "Installing Yaws version 1.77"
+  mkdir -p /opt/erlang-libs
+  cd /opt/erlang-libs
+  wget http://yaws.hyber.org/download/yaws-1.77.tar.gz
+  tar zxvf yaws-1.77.tar.gz
+  cd yaws
+  ./configure
+  make
+  cd $CWD
+fi
+
+# Setup required apps for ceug
+
+echo Installing required apps for ceug
+
+echo Installing mysql app
+
+/usr/local/erlware/bin/faxien ia mysql
+
+echo Installing sinan
+
+/usr/local/erlware/bin/faxien ir sinan
