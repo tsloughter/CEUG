@@ -5,3 +5,8 @@ echo Deploying CEUG Blog
 /usr/local/erlware/bin/sinan dist
 sudo /usr/local/erlware/bin/faxien ir _build/development/tar/ceug-0.1.0.0.tar.gz
 
+sudo mkdir /opt/ceug
+
+sudo rm -fr /opt/ceug/wwwroot
+sudo cp -R lib/blog/wwwroot /opt/ceug/
+sudo ln -sf /opt/erlang-libs/nitrogen/www /opt/ceug/wwwroot/nitrogen
