@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo Setting up MySQL databases..
+
+mysql -u root -ptemp4now < blog_db

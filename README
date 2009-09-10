@@ -1,0 +1,24 @@
+Install the following libraries:
+
+% sudo apt-get install erlang mysql
+
+*Note: Use temp4now as mysql server root password
+ 
+edit ~/.bashrc (both root and chatyeo user)
+export PATH=$PATH:/usr/local/erlware/bin
+export ERL_LIBS=/opt/erlang-libs/:/usr/lib/erlang/lib/:/usr/local/erlware/lib/
+
+source ~/.bashrc 
+
+% wget http://faxien.googlecode.com/files/faxien-launcher-universal-0.3.4.py
+% sudo python faxien-launcher-universal-0.3.4.py
+(accept defaults, say (n)ew when asking about config files)
+
+% Setup yaws and other stuff
+
+% sudo ./setup_node
+
+Do the following each time you change the chatyeo code
+
+% ./deploy
+% ceug
