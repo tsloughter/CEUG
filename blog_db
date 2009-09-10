@@ -1,0 +1,21 @@
+use chatyeo;
+
+CREATE TABLE `posts` (
+  `title` char(200) NOT NULL,
+  `post` varchar(20000) NOT NULL,                             
+  `timestamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` char(15) UNIQUE NOT NULL,
+  INDEX (`username`),
+  `fullname` char(255) NOT NULL,
+  `email` char(255) UNIQUE NOT NULL,
+  INDEX (`email`),
+  `password` char(41) NOT NULL,
+  `date_joined` date NOT NULL,
+  `last_logged_in` datetime NOT NULL,
+  `anon_username` char(15) DEFAULT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
