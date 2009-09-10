@@ -19,8 +19,8 @@
 
 -define(SERVER, ?MODULE).
 -define(DB_SERVER, "localhost").
--define(CHATYEO_DB, "chatyeo").
--define(CHATYEO_DB_USER, "chatyeo").
+-define(CHATYEO_DB, "blog").
+-define(CHATYEO_DB_USER, "root").
 -define(CHATYEO_DB_PASSWORD, "temp4now").
 
 -record(state, {connections}).

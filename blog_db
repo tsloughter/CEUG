@@ -1,4 +1,5 @@
-use chatyeo;
+create database blog;
+use blog;
 
 CREATE TABLE `posts` (
   `title` char(200) NOT NULL,
