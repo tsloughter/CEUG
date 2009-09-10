@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mysql -u root -ptemp4now < "drop database chatyeo;" &> /dev/null
+
